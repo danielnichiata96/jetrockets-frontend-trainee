@@ -92,10 +92,21 @@ Hotwire app with minimal change — which is the growth path this role is about:
 - Visible keyboard focus, respects `prefers-reduced-motion`.
 - _(track contrast / alt text / heading order as the layout grows.)_
 
+## Asset status
+
+- **Store badges** — rebuilt as inline-style SVGs (`assets/images/badge-*.svg`).
+- **Logo** — a colourful placeholder mark stands in for the brand bitmap.
+- **Hero artwork** — the app-screenshot composition is still a styled
+  placeholder. It's the one raster asset that only exists inside the Figma file.
+
+> Note: the design values (colours, type, spacing, positions) were read from the
+> Figma REST API. Its per-token cost quota was later exhausted, so the remaining
+> raster assets are pending a manual export from Figma rather than an API pull.
+
 ## Next steps
 
-- Export the raster assets from Figma (app screenshots, Google Play / App Store
-  badges, logo) and swap them in for the current placeholders.
+- Drop the exported `hero-app.png` (and optional `logo.png`) into
+  `assets/images/`; the markup is ready to point at them.
 - Publish to GitHub Pages and add the live URL above.
 
 ## Deployment (GitHub Pages)
