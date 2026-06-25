@@ -132,6 +132,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2xs);
+  min-width: 0;   /* let the grid track shrink below content size */
 }
 
 .field label {
@@ -211,6 +212,7 @@
 
 .badges {
   display: flex;
+  flex-wrap: wrap;    /* stack on very narrow screens instead of overflowing */
   gap: var(--space-sm);
   justify-content: center;
   margin-top: auto;   /* pushes badges toward the bottom, as in the design */
@@ -221,10 +223,11 @@
 @media (max-width: 640px) {
   .form__grid,
   .form__actions {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .form__row {
     flex-wrap: wrap;
+    gap: var(--space-xs) var(--space-md);
   }
 }

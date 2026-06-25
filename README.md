@@ -2,7 +2,7 @@
 
 Layout built from the [JetRockets Frontend Trainee Figma mockup](https://www.figma.com/design/1NWvnnpn8RzLjDdv2giz0f/JetRockets---Frontend-Trainee?node-id=0-1).
 
-**Live demo:** published on GitHub Pages — _URL added on deploy (see Deployment)_.
+**Live demo:** _added once published to GitHub Pages (see Deployment)._
 
 ## Stack
 
@@ -107,7 +107,8 @@ Hotwire app with minimal change — which is the growth path this role is about:
 
 ## Accessibility
 
-- Semantic landmarks (`header`, `main`, `footer`), `lang` attribute, skip link.
+- Semantic structure: `<main>`, `<aside>` (hero), `<header>` (heading);
+  `lang` attribute; skip link.
 - Real input `type`s + `<label for>` + `autocomplete`; required fields marked.
 - Visible keyboard focus, respects `prefers-reduced-motion`.
 - _(track contrast / alt text / heading order as the layout grows.)_

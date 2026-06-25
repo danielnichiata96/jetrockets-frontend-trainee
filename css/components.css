@@ -17,6 +17,7 @@
   border: 1px solid transparent;
   border-radius: var(--field-radius);
   cursor: pointer;
+  min-width: 0;   /* allow the button to shrink within its grid track */
   transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
