@@ -2,10 +2,11 @@
 .DS_Store
 Thumbs.db
 
-# Editors
+# Editors / tooling
 .vscode/
 .idea/
 *.swp
+.claude/
 
 # Logs / temp
 *.log
