@@ -20,9 +20,11 @@
   color: var(--color-on-primary);
 }
 
-/* Figma "Ellipse 2": the real exported disc (593px, ≈73% of the panel),
-   horizontally centred, vertical centre 55%. Using the design asset itself
-   rather than a CSS approximation. */
+/* Figma "Ellipse 2": a 593px disc (≈73% of the panel), centred horizontally,
+   vertical centre 55%. Its fill runs the SAME way as the background
+   (bright → dark, top-left ↘ bottom-right) but steeper across the disc, so it
+   reads as a subtle tonal circle. Gradient sampled from the exported asset
+   (top-left ≈ #007AFF, bottom-right ≈ #0F70DA) — reproduced in pure CSS. */
 .auth__hero::before {
   content: "";
   position: absolute;
@@ -31,7 +33,12 @@
   width: min(593px, 73%);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
-  background: url("../assets/images/ellipse.webp") center / contain no-repeat;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-2) 100%
+  );
 }
 
 /* Right: form panel. Content is top-anchored (logo ≈64px from the top in
