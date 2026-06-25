@@ -16,6 +16,8 @@ const targets = [
   { in: "src/hero/hero-c.svg", out: "assets/images/hero-c.webp", width: 666 },
   // Logo is tiny on screen but a smooth gradient ring → higher quality.
   { in: "src/logo.svg", out: "assets/images/logo.webp", width: 96, quality: 92 },
+  // Google "G" mark for the sign-in button (20px on screen → 2× = 40px).
+  { in: "src/google.svg", out: "assets/images/google.webp", width: 40, quality: 92 },
 ];
 
 const kb = (bytes) => Math.round(bytes / 1024);

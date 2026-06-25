@@ -178,8 +178,8 @@
   position: absolute;
   top: 50%;
   right: var(--space-md);
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 18px;   /* preserves the icon's 15×17 aspect */
   transform: translateY(-50%);
   color: var(--color-text);
   pointer-events: none;

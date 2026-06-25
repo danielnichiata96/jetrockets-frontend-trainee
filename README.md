@@ -84,10 +84,11 @@ Sources live in `src/`; the served `.webp` files land in `assets/images/`.
    password?" are unusual on a sign-up screen, but they're in the design, so they
    stay — flagged here rather than silently removed.
 
-7. **Real assets, optimised.** The hero phones and the logo are the real
-   exported images — each a multi-MB raster-in-SVG, compressed to WebP (the
-   1.2 MB logo → **3 KB**). The store badges are standard marks, recreated as
-   inline SVGs.
+7. **Official assets, never redrawn.** The hero phones, logo and Google mark are
+   the real exported images — raster-in-SVG compressed to WebP (logo 1.2 MB →
+   **3 KB**). The Google Play / App Store badges are the **official vector
+   artwork**: store brand guidelines require the real badges, so they're used
+   as-is rather than hand-drawn (an early version recreated them — corrected).
 
 ## Built with Rails in mind
 
@@ -115,8 +116,9 @@ Hotwire app with minimal change — which is the growth path this role is about:
 
 - **Hero artwork** — three real phone screenshots, optimised to WebP and
   layered with the tall one in front.
-- **Logo** — the real exported asset, optimised to a 3 KB WebP.
-- **Store badges** — recreated as inline SVGs.
+- **Logo & Google mark** — real exported assets, optimised to WebP (1–3 KB).
+- **Store badges** — official Google Play / App Store vector artwork (SVG).
+- **Calendar icon** — the design's own SVG, inline for theming.
 
 ## Deployment (GitHub Pages)
 
