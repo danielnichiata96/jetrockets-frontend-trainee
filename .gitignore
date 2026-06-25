@@ -16,3 +16,6 @@ Thumbs.db
 *.log
 node_modules/
 .cache/
+
+# Local preview / screenshots / headless-browser profile (not part of deliverable)
+.preview/
