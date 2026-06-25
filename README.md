@@ -37,18 +37,50 @@ npx serve .
 
 ## Decisions & handling the ambiguity
 
-> The brief states the mockup is *intentionally imperfect*. This section records
-> the judgment calls I made so they can be reviewed.
+> The brief states the mockup is *intentionally imperfect*. The approach chosen
+> was **faithful reproduction + pragmatic polish**: match the design, but fix
+> what is clearly a defect and record every change here.
 
-- _(example)_ The mockup left spacing inconsistent between cards; I standardized
-  to the 8px scale defined in `tokens.css` for visual rhythm.
-- _(add each decision as you build — what was ambiguous, what you chose, why.)_
+1. **Frame named "Login page", but the content is a sign-up form** ("Create
+   account", First/Last name, Confirm password, Terms). Treated it as what it
+   *is* — an account-creation screen — and titled the page accordingly.
+
+2. **Every input's placeholder said "First name"** — a leftover from the Figma
+   master component (instances overrode only the label, not the inner text).
+   Replaced each with a placeholder that matches its field (e.g. Password →
+   "Password", e-mail → `bill.sanders@example.com`). Clear defect → fixed.
+
+3. **Field order looked wrong in the JSON, but wasn't.** Reading the JSON, "Last
+   name" appeared last. Checking the actual x/y coordinates from the Figma API
+   showed the real grid is *First name | Last name* on row one. Verified before
+   "fixing" — so the design order was kept as-is.
+
+4. **A calendar icon floated loose**, unattached to any field. Anchored it inside
+   the "Date of birth" input, where it was clearly meant to go.
+
+5. **Semantics over pixels for inputs.** Used real `type`s (`password`, etc.),
+   `<label for>` associations, and `autocomplete` hints — invisible in the
+   mockup but essential for a real, accessible form (and natural in Rails later).
+
+6. **Mixed metaphors kept, not invented away.** "Remember me" / "Forgot
+   password?" are unusual on a sign-up screen, but they're in the design, so they
+   stay — flagged here rather than silently removed.
+
+7. **Images are placeholders for now.** The app screenshots, store badges and
+   logo bitmap are raster assets in Figma. They're rendered as styled
+   placeholders pending export via the Figma API (see _Next steps_).
 
 ## Accessibility
 
 - Semantic landmarks (`header`, `main`, `footer`), `lang` attribute, skip link.
 - Visible keyboard focus, respects `prefers-reduced-motion`.
 - _(track contrast / alt text / heading order as the layout grows.)_
+
+## Next steps
+
+- Export the raster assets from Figma (app screenshots, Google Play / App Store
+  badges, logo) and swap them in for the current placeholders.
+- Publish to GitHub Pages and add the live URL above.
 
 ## Deployment (GitHub Pages)
 
