@@ -120,6 +120,8 @@ Hotwire app with minimal change — which is the growth path this role is about:
 - **Logo & Google mark** — real exported assets, optimised to WebP (1–3 KB).
 - **Store badges** — official Google Play / App Store vector artwork (SVG).
 - **Calendar icon** — the design's own SVG, inline for theming.
+- **Hero disc** — the design's exported "Ellipse 2", optimised to WebP (used as
+  the real asset behind the phones rather than a CSS approximation).
 
 ## Deployment (GitHub Pages)
 

@@ -20,26 +20,18 @@
   color: var(--color-on-primary);
 }
 
-/* Figma "Ellipse 2": a 593px blue disc behind the phones, its gradient
-   reversed from the background so it reads as a subtle tonal circle.
-   Horizontally centred, vertical centre ≈ 55%. */
+/* Figma "Ellipse 2": the real exported disc (593px, ≈73% of the panel),
+   horizontally centred, vertical centre 55%. Using the design asset itself
+   rather than a CSS approximation. */
 .auth__hero::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 56%;
-  width: min(620px, 84%);
+  top: 55%;
+  width: min(593px, 73%);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
-  border-radius: 50%;
-  /* Darker-blue disc behind the phones (Figma "Ellipse 2"). Solid body so the
-     ring peeking around the phones stays visible, with a soft outer edge. */
-  background: radial-gradient(
-    circle,
-    rgba(2, 54, 132, 0.5) 0%,
-    rgba(2, 54, 132, 0.5) 64%,
-    rgba(2, 54, 132, 0) 80%
-  );
+  background: url("../assets/images/ellipse.webp") center / contain no-repeat;
 }
 
 /* Right: form panel. Content is top-anchored (logo ≈64px from the top in

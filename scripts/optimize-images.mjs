@@ -18,6 +18,8 @@ const targets = [
   { in: "src/logo.svg", out: "assets/images/logo.webp", width: 96, quality: 92 },
   // Google "G" mark for the sign-in button (20px on screen → 2× = 40px).
   { in: "src/google.svg", out: "assets/images/google.webp", width: 40, quality: 92 },
+  // Hero background disc (Figma "Ellipse 2"); soft gradient, no detail → small.
+  { in: "src/ellipse.png", out: "assets/images/ellipse.webp", width: 560, quality: 72 },
 ];
 
 const kb = (bytes) => Math.round(bytes / 1024);
