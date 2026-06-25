@@ -20,21 +20,22 @@
   color: var(--color-on-primary);
 }
 
-/* Decorative glow circle behind the artwork.
-   Figma "Ellipse 2": 593px, horizontally centered, vertical centre ≈ 55%. */
+/* Figma "Ellipse 2": a 593px blue disc behind the phones, its gradient
+   reversed from the background so it reads as a subtle tonal circle.
+   Horizontally centred, vertical centre ≈ 55%. */
 .auth__hero::before {
   content: "";
   position: absolute;
   left: 50%;
   top: 55%;
-  width: min(593px, 90%);
+  width: min(593px, 92%);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.22),
-    rgba(255, 255, 255, 0) 68%
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-2) 0%,
+    var(--color-primary) 100%
   );
 }
 
