@@ -82,8 +82,8 @@
 }
 
 .logo__mark {
-  width: 44px;
   height: 44px;
+  width: auto;   /* preserves the logo's 42×48 aspect */
 }
 
 .logo__text {

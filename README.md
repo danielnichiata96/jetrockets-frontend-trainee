@@ -23,7 +23,7 @@ only where an interaction genuinely needs it.
 │   ├── layout.css       # two-column auth layout + hero
 │   └── components.css    # reusable UI (button, checkbox, badge, …)
 ├── assets/images/       # served assets: optimised hero .webp + badge .svg
-├── src/hero/            # source: full-res phone SVGs exported from Figma
+├── src/                 # source: full-res phone + logo SVGs from Figma
 └── scripts/
     └── optimize-images.mjs
 ```
@@ -41,16 +41,17 @@ npx serve .
 
 ## Image optimisation
 
-Figma exports the hero phones as SVGs with a full-res raster embedded (~1.2 MB
-each). A small script rasterises them to WebP (with transparency) at ~2× their
-display size, taking the hero from **3.6 MB → ~150 KB**:
+Figma exports the phone screenshots and the logo as SVGs with a full-res raster
+embedded (~1.2 MB each). A small script rasterises them to WebP (with
+transparency) at ~2× their display size — the hero alone drops from
+**3.6 MB → ~150 KB**:
 
 ```bash
 npm install        # installs sharp
 npm run optimize:images
 ```
 
-Sources live in `src/hero/`; the served `.webp` files land in `assets/images/`.
+Sources live in `src/`; the served `.webp` files land in `assets/images/`.
 
 ## Decisions & handling the ambiguity
 
@@ -83,10 +84,10 @@ Sources live in `src/hero/`; the served `.webp` files land in `assets/images/`.
    password?" are unusual on a sign-up screen, but they're in the design, so they
    stay — flagged here rather than silently removed.
 
-7. **Logo & badges recreated as SVG.** The hero phone screenshots are the real
-   exported images, but the logo in the design is itself a generic low-quality
-   placeholder bitmap, and the store badges are standard marks — so both were
-   rebuilt as crisp, scalable SVGs instead of shipping low-res rasters.
+7. **Real assets, optimised.** The hero phones and the logo are the real
+   exported images — each a multi-MB raster-in-SVG, compressed to WebP (the
+   1.2 MB logo → **3 KB**). The store badges are standard marks, recreated as
+   inline SVGs.
 
 ## Built with Rails in mind
 
@@ -112,9 +113,10 @@ Hotwire app with minimal change — which is the growth path this role is about:
 
 ## Assets
 
-- **Hero artwork** — three real phone screenshots from the design, optimised to
-  WebP and layered with the tall one in front.
-- **Store badges & logo** — recreated as crisp inline SVGs.
+- **Hero artwork** — three real phone screenshots, optimised to WebP and
+  layered with the tall one in front.
+- **Logo** — the real exported asset, optimised to a 3 KB WebP.
+- **Store badges** — recreated as inline SVGs.
 
 ## Deployment (GitHub Pages)
 
