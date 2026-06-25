@@ -27,15 +27,18 @@
   content: "";
   position: absolute;
   left: 50%;
-  top: 55%;
-  width: min(593px, 92%);
+  top: 56%;
+  width: min(620px, 84%);
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: linear-gradient(
-    180deg,
-    var(--color-primary-2) 0%,
-    var(--color-primary) 100%
+  /* Soft, subtle darker-blue disc — matches the gentle tonal circle in the
+     design (a hard high-contrast ring reads too strong). */
+  background: radial-gradient(
+    circle,
+    rgba(7, 68, 156, 0.55) 0%,
+    rgba(7, 68, 156, 0.18) 52%,
+    transparent 72%
   );
 }
 
