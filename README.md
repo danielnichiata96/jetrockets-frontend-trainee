@@ -2,7 +2,7 @@
 
 Layout built from the [JetRockets Frontend Trainee Figma mockup](https://www.figma.com/design/1NWvnnpn8RzLjDdv2giz0f/JetRockets---Frontend-Trainee?node-id=0-1).
 
-**Live demo:** _add GitHub Pages URL here_
+**Live demo:** published on GitHub Pages — _URL added on deploy (see Deployment)_.
 
 ## Stack
 
@@ -62,10 +62,10 @@ Sources live in `src/hero/`; the served `.webp` files land in `assets/images/`.
    account", First/Last name, Confirm password, Terms). Treated it as what it
    *is* — an account-creation screen — and titled the page accordingly.
 
-2. **Every input's placeholder said "First name"** — a leftover from the Figma
-   master component (instances overrode only the label, not the inner text).
-   Replaced each with a placeholder that matches its field (e.g. Password →
-   "Password", e-mail → `bill.sanders@example.com`). Clear defect → fixed.
+2. **Empty fields with labels above.** In the Figma component the input boxes
+   carried leftover "First name" text, but the rendered mockup shows the boxes
+   *empty* with the label sitting above each one. Matched that — empty inputs,
+   clear `<label>` per field — rather than reproducing the leftover placeholder.
 
 3. **Field order looked wrong in the JSON, but wasn't.** Reading the JSON, "Last
    name" appeared last. Checking the actual x/y coordinates from the Figma API
@@ -83,9 +83,10 @@ Sources live in `src/hero/`; the served `.webp` files land in `assets/images/`.
    password?" are unusual on a sign-up screen, but they're in the design, so they
    stay — flagged here rather than silently removed.
 
-7. **Images are placeholders for now.** The app screenshots, store badges and
-   logo bitmap are raster assets in Figma. They're rendered as styled
-   placeholders pending export via the Figma API (see _Next steps_).
+7. **Logo & badges recreated as SVG.** The hero phone screenshots are the real
+   exported images, but the logo in the design is itself a generic low-quality
+   placeholder bitmap, and the store badges are standard marks — so both were
+   rebuilt as crisp, scalable SVGs instead of shipping low-res rasters.
 
 ## Built with Rails in mind
 
@@ -115,13 +116,12 @@ Hotwire app with minimal change — which is the growth path this role is about:
   WebP and layered with the tall one in front.
 - **Store badges & logo** — recreated as crisp inline SVGs.
 
-## Next steps
-
-- Swap the logo placeholder for the exported `logo.png`.
-- Publish to GitHub Pages and add the live URL above.
-
 ## Deployment (GitHub Pages)
 
-1. Push to GitHub.
-2. **Settings → Pages → Source: `main` branch, `/root`.**
-3. The site publishes at `https://<user>.github.io/<repo>/`.
+```bash
+git push -u origin main
+```
+
+Then in **Settings → Pages → Source: `main` branch, `/root`**. The site
+publishes at `https://<user>.github.io/<repo>/` — add that URL to the
+**Live demo** line at the top.
