@@ -45,7 +45,6 @@
   --space-lg: 1.5rem;    /* 24 — row gap between fields */
   --space-xl: 2rem;      /* 32 — column gap between fields */
   --space-2xl: 3rem;     /* 48 */
-  --space-3xl: 4rem;     /* 64 */
 
   /* --- Form controls ---------------------------------------------------- */
   --control-height: 3rem;     /* 48px — inputs & buttons */
