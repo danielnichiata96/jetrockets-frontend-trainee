@@ -109,17 +109,11 @@ Hotwire app with minimal change — which is the growth path this role is about:
 - Visible keyboard focus, respects `prefers-reduced-motion`.
 - _(track contrast / alt text / heading order as the layout grows.)_
 
-## Asset status
+## Assets
 
-- **Hero artwork** — three real phone screenshots exported from Figma, optimised
-  to WebP and layered with the tall one in front.
-- **Store badges** — rebuilt as inline-style SVGs (`assets/images/badge-*.svg`).
-- **Logo** — a colourful placeholder mark stands in for the brand bitmap
-  (pending a manual export of the small logo image).
-
-> Note: the design values (colours, type, spacing, positions) were read from the
-> Figma REST API. Its per-token cost quota was later exhausted, so the raster
-> assets were exported manually from Figma rather than pulled via the API.
+- **Hero artwork** — three real phone screenshots from the design, optimised to
+  WebP and layered with the tall one in front.
+- **Store badges & logo** — recreated as crisp inline SVGs.
 
 ## Next steps
 

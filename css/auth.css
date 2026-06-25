@@ -79,19 +79,9 @@
   align-self: flex-start;
 }
 
-/* Placeholder mark (colourful) until the real logo bitmap is exported. */
 .logo__mark {
-  width: 42px;
-  height: 48px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 210deg,
-    #007aff,
-    #00e676,
-    #ffce00,
-    #ff3d00,
-    #007aff
-  );
+  width: 44px;
+  height: 44px;
 }
 
 .logo__text {

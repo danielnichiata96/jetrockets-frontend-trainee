@@ -49,12 +49,10 @@
 
   /* --- Form controls ---------------------------------------------------- */
   --control-height: 3rem;     /* 48px — inputs & buttons */
-  --control-width: 22.375rem; /* 358px — single field/button width */
   --field-radius: 5px;
   --check-size: 1.25rem;      /* 20px */
   --check-radius: 2px;
 
   /* --- Layout ----------------------------------------------------------- */
   --panel-width: 42.4%;       /* left hero ≈ 814/1920 */
-  --form-col-gap: var(--space-xl);
 }
