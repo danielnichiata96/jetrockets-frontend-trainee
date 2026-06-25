@@ -70,9 +70,25 @@ npx serve .
    logo bitmap are raster assets in Figma. They're rendered as styled
    placeholders pending export via the Figma API (see _Next steps_).
 
+## Built with Rails in mind
+
+The deliverable is static, but it's structured so it could drop into a Rails /
+Hotwire app with minimal change — which is the growth path this role is about:
+
+- **Component-shaped markup.** Figma's reusable "Entry field" maps 1:1 to a
+  `.field` block here, and would become a `FieldComponent` (ViewComponent) /
+  partial. The CSS layers (tokens → base → layout → components) mirror that split.
+- **Rails param conventions.** Inputs are named `user[first_name]`,
+  `user[password_confirmation]`, etc. — exactly what `params.require(:user)`
+  strong params expect. The `<form action="/users" method="post">` reflects a
+  real `UsersController#create`.
+- **Server-driven, no SPA.** Plain form POST, JS kept minimal — the model
+  Hotwire/Turbo builds on, rather than a client framework.
+
 ## Accessibility
 
 - Semantic landmarks (`header`, `main`, `footer`), `lang` attribute, skip link.
+- Real input `type`s + `<label for>` + `autocomplete`; required fields marked.
 - Visible keyboard focus, respects `prefers-reduced-motion`.
 - _(track contrast / alt text / heading order as the layout grows.)_
 

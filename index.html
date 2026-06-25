@@ -56,30 +56,32 @@
             <p>For business, band or celebrity.</p>
           </header>
 
-          <form class="form" novalidate>
+          <!-- Field names use Rails' nested strong-params convention
+               (user[...]); a real Rails controller would receive `params[:user]`. -->
+          <form class="form" action="/users" method="post" novalidate>
             <div class="form__grid">
               <div class="field">
                 <label for="first-name">First name</label>
-                <input id="first-name" name="first_name" type="text"
+                <input id="first-name" name="user[first_name]" type="text"
                        autocomplete="given-name" placeholder="First name" />
               </div>
 
               <div class="field">
                 <label for="last-name">Last name</label>
-                <input id="last-name" name="last_name" type="text"
+                <input id="last-name" name="user[last_name]" type="text"
                        autocomplete="family-name" placeholder="Last name" />
               </div>
 
               <div class="field">
                 <label for="email">Email or phone number</label>
-                <input id="email" name="email" type="text"
+                <input id="email" name="user[email]" type="text"
                        autocomplete="email" placeholder="bill.sanders@example.com" />
               </div>
 
               <div class="field">
                 <label for="dob">Date of birth (MM/DD/YY)</label>
                 <span class="field__control">
-                  <input id="dob" name="dob" type="text" inputmode="numeric"
+                  <input id="dob" name="user[date_of_birth]" type="text" inputmode="numeric"
                          placeholder="MM/DD/YY" />
                   <svg class="field__icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path fill="currentColor" d="M7 2v2H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7Zm12 7v10H5V9h14ZM5 6h14v1H5V6Z"/>
@@ -89,27 +91,27 @@
 
               <div class="field">
                 <label for="password">Password</label>
-                <input id="password" name="password" type="password"
+                <input id="password" name="user[password]" type="password"
                        autocomplete="new-password" placeholder="Password" />
               </div>
 
               <div class="field">
                 <label for="confirm">Confirm password</label>
-                <input id="confirm" name="password_confirmation" type="password"
+                <input id="confirm" name="user[password_confirmation]" type="password"
                        autocomplete="new-password" placeholder="Confirm password" />
               </div>
             </div>
 
             <div class="form__row">
               <label class="checkbox">
-                <input type="checkbox" name="remember" />
+                <input type="checkbox" name="user[remember_me]" />
                 <span>Remember me</span>
               </label>
               <a class="link" href="#">Forgot password?</a>
             </div>
 
             <label class="checkbox">
-              <input type="checkbox" name="terms" required />
+              <input type="checkbox" name="user[terms_of_service]" required />
               <span>I agree to all the Terms and Privacy policy</span>
             </label>
 
