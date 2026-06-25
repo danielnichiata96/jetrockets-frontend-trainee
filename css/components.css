@@ -100,15 +100,18 @@
   text-decoration: underline;
 }
 
-/* --- Store badge (placeholder until real assets are exported) ----------- */
+/* --- Store badge -------------------------------------------------------- */
 .badge {
   display: inline-flex;
-  align-items: center;
-  height: 40px;
-  padding-inline: var(--space-md);
-  background: var(--color-heading);
-  color: #fff;
   border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: var(--fw-semibold);
+  transition: opacity 0.2s ease;
+}
+
+.badge:hover {
+  opacity: 0.85;
+}
+
+.badge img {
+  height: 40px;
+  width: auto;
 }

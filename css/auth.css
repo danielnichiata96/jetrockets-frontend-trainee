@@ -24,6 +24,7 @@
 .hero__images {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-md);
 }
 
@@ -71,11 +72,19 @@
   align-self: flex-start;
 }
 
+/* Placeholder mark (colourful) until the real logo bitmap is exported. */
 .logo__mark {
   width: 42px;
   height: 48px;
-  border-radius: var(--radius-sm);
-  background: var(--gradient-panel);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 210deg,
+    #007aff,
+    #00e676,
+    #ffce00,
+    #ff3d00,
+    #007aff
+  );
 }
 
 .logo__text {

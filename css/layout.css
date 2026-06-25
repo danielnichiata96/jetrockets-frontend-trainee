@@ -20,15 +20,21 @@
   color: var(--color-on-primary);
 }
 
-/* Decorative glow circle behind the artwork (the Figma "Ellipse"). */
+/* Decorative glow circle behind the artwork.
+   Figma "Ellipse 2": 593px, horizontally centered, vertical centre ≈ 55%. */
 .auth__hero::before {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: 55%;
+  width: min(593px, 90%);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
   background: radial-gradient(
-    40% 40% at 50% 38%,
-    rgba(255, 255, 255, 0.18),
-    transparent 70%
+    circle,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0) 68%
   );
 }
 
