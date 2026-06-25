@@ -1,0 +1,13 @@
+{
+  "name": "jetrockets-frontend-trainee",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static layout from the JetRockets Frontend Trainee Figma mockup.",
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

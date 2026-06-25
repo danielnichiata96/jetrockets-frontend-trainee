@@ -6,9 +6,10 @@ Layout built from the [JetRockets Frontend Trainee Figma mockup](https://www.fig
 
 ## Stack
 
-Plain **HTML + CSS** — no frameworks, no build step. The role evaluates raw
-layout skill, and a static site deploys directly to GitHub Pages. JavaScript is
-added only where an interaction genuinely needs it.
+Plain **HTML + CSS**, no frameworks. The page itself needs no build step — it
+deploys straight to GitHub Pages. The only tooling is an optional Node script
+that compresses the hero images (see _Image optimisation_). JavaScript is added
+only where an interaction genuinely needs it.
 
 ## Project structure
 
@@ -19,9 +20,12 @@ added only where an interaction genuinely needs it.
 │   ├── reset.css        # predictable cross-browser baseline
 │   ├── tokens.css       # design tokens (colors, spacing, type) from Figma
 │   ├── base.css         # element defaults + typography
-│   ├── layout.css       # container, sections, grids
-│   └── components.css    # reusable UI (buttons, cards, …)
-└── assets/images/
+│   ├── layout.css       # two-column auth layout + hero
+│   └── components.css    # reusable UI (button, checkbox, badge, …)
+├── assets/images/       # served assets: optimised hero .webp + badge .svg
+├── src/hero/            # source: full-res phone SVGs exported from Figma
+└── scripts/
+    └── optimize-images.mjs
 ```
 
 CSS is loaded in cascade order (reset → tokens → base → layout → components) so
@@ -34,6 +38,19 @@ It's a static site — open `index.html` in a browser, or serve it:
 ```bash
 npx serve .
 ```
+
+## Image optimisation
+
+Figma exports the hero phones as SVGs with a full-res raster embedded (~1.2 MB
+each). A small script rasterises them to WebP (with transparency) at ~2× their
+display size, taking the hero from **3.6 MB → ~150 KB**:
+
+```bash
+npm install        # installs sharp
+npm run optimize:images
+```
+
+Sources live in `src/hero/`; the served `.webp` files land in `assets/images/`.
 
 ## Decisions & handling the ambiguity
 
@@ -94,19 +111,19 @@ Hotwire app with minimal change — which is the growth path this role is about:
 
 ## Asset status
 
+- **Hero artwork** — three real phone screenshots exported from Figma, optimised
+  to WebP and layered with the tall one in front.
 - **Store badges** — rebuilt as inline-style SVGs (`assets/images/badge-*.svg`).
-- **Logo** — a colourful placeholder mark stands in for the brand bitmap.
-- **Hero artwork** — the app-screenshot composition is still a styled
-  placeholder. It's the one raster asset that only exists inside the Figma file.
+- **Logo** — a colourful placeholder mark stands in for the brand bitmap
+  (pending a manual export of the small logo image).
 
 > Note: the design values (colours, type, spacing, positions) were read from the
-> Figma REST API. Its per-token cost quota was later exhausted, so the remaining
-> raster assets are pending a manual export from Figma rather than an API pull.
+> Figma REST API. Its per-token cost quota was later exhausted, so the raster
+> assets were exported manually from Figma rather than pulled via the API.
 
 ## Next steps
 
-- Drop the exported `hero-app.png` (and optional `logo.png`) into
-  `assets/images/`; the markup is ready to point at them.
+- Swap the logo placeholder for the exported `logo.png`.
 - Publish to GitHub Pages and add the live URL above.
 
 ## Deployment (GitHub Pages)
