@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Layout — page-level structure: container, sections, grids.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section {
+  padding-block: var(--space-3xl);
+}
+
+/* Reusable responsive grid. Children flow into auto-fit columns. */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+}

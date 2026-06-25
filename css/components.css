@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Components — small, reusable UI building blocks.
+   Add one block per component as the layout grows.
+   ========================================================================== */
+
+/* --- Button ------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  font-weight: var(--fw-medium);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button--primary {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.button--primary:hover {
+  background-color: var(--color-accent-hover);
+  color: #fff;
+}
+
+.button--ghost {
+  background-color: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.button--ghost:hover {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}

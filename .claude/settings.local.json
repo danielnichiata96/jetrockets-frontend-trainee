@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Force C:\\\\jetrockets | Select-Object Name, Length; \"---\"; git --version; node --version; ruby --version 2>$null)"
+    ]
+  }
+}
