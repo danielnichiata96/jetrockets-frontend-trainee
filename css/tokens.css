@@ -1,54 +1,60 @@
 /* ==========================================================================
-   Design tokens — single source of truth for the visual language.
-   Values below are PLACEHOLDERS. Replace each with the exact value read
-   from the Figma file (Inspect panel) so the build matches the design.
+   Design tokens — single source of truth, read from the Figma file
+   "JetRockets / Frontend Trainee" (page: Auth → frame: Login page).
    ========================================================================== */
 
 :root {
   /* --- Color ------------------------------------------------------------ */
   --color-bg: #ffffff;
-  --color-surface: #f5f5f5;
-  --color-text: #1a1a1a;
-  --color-text-muted: #6b6b6b;
-  --color-accent: #2b59ff;        /* TODO: from Figma */
-  --color-accent-hover: #1f44cc;  /* TODO: from Figma */
-  --color-border: #e5e5e5;
+  --color-heading: #1d1d1d;       /* big headings, logo */
+  --color-text: #2d3748;          /* body, labels, input text */
+  --color-primary: #007aff;       /* primary button, links */
+  --color-primary-2: #0f70da;     /* gradient companion */
+  --color-dark: #2d3748;          /* "Sign-in with google" button bg */
+  --color-border: #d1d1d1;        /* input + checkbox borders */
+  --color-on-primary: #ffffff;
 
-  /* --- Typography ------------------------------------------------------- */
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Left hero panel gradient */
+  --gradient-panel: linear-gradient(180deg, #007aff 0%, #0f70da 100%);
 
-  /* Fluid type scale — clamp(min, preferred, max). Tune to Figma. */
-  --fs-100: 0.875rem;  /* 14px */
-  --fs-200: 1rem;      /* 16px — base */
-  --fs-300: 1.25rem;   /* 20px */
-  --fs-400: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
-  --fs-500: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  /* --- Typography (Poppins) -------------------------------------------- */
+  --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --fs-body: 0.875rem;   /* 14px — body, labels, buttons, links */
+  --fs-logo: 1.125rem;   /* 18px */
+  --fs-heading: 1.75rem; /* 28px — "Create account", hero */
 
   --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-bold: 700;
+  --fw-semibold: 600;
 
-  --lh-tight: 1.1;
-  --lh-base: 1.5;
+  /* Line heights (from Figma, as ratios) */
+  --lh-body: 1.43;       /* ~20/14 */
+  --lh-heading: 1.4;     /* ~39/28 */
+  --lh-hero: 1.5;        /* 42/28 */
+
+  /* Letter spacing (Figma values, in px) */
+  --ls-body: -0.28px;
+  --ls-logo: -0.36px;
+  --ls-heading: -0.56px;
 
   /* --- Spacing scale (8px base) ----------------------------------------- */
-  --space-2xs: 0.25rem;  /* 4 */
+  --space-2xs: 0.25rem;  /* 4  — label→field gap */
   --space-xs: 0.5rem;    /* 8 */
-  --space-sm: 0.75rem;   /* 12 */
+  --space-sm: 0.75rem;   /* 12 — inline gaps (badges, checkbox) */
   --space-md: 1rem;      /* 16 */
-  --space-lg: 1.5rem;    /* 24 */
-  --space-xl: 2rem;      /* 32 */
+  --space-lg: 1.5rem;    /* 24 — row gap between fields */
+  --space-xl: 2rem;      /* 32 — column gap between fields */
   --space-2xl: 3rem;     /* 48 */
   --space-3xl: 4rem;     /* 64 */
 
-  /* --- Layout ----------------------------------------------------------- */
-  --container-max: 1200px;  /* TODO: confirm in Figma */
-  --container-pad: var(--space-lg);
+  /* --- Form controls ---------------------------------------------------- */
+  --control-height: 3rem;     /* 48px — inputs & buttons */
+  --control-width: 22.375rem; /* 358px — single field/button width */
+  --field-radius: 5px;
+  --check-size: 1.25rem;      /* 20px */
+  --check-radius: 2px;
 
-  /* --- Radius & shadow -------------------------------------------------- */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* --- Layout ----------------------------------------------------------- */
+  --panel-width: 42.4%;       /* left hero ≈ 814/1920 */
+  --form-col-gap: var(--space-xl);
 }

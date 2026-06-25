@@ -1,21 +1,60 @@
 /* ==========================================================================
-   Layout — page-level structure: container, sections, grids.
+   Layout — page-level structure for the auth screen.
+   Two columns on desktop; stacks on small screens.
    ========================================================================== */
 
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-pad);
-}
-
-.section {
-  padding-block: var(--space-3xl);
-}
-
-/* Reusable responsive grid. Children flow into auto-fit columns. */
-.grid {
+.auth {
   display: grid;
-  gap: var(--space-lg);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  grid-template-columns: var(--panel-width) 1fr;
+  min-height: 100vh;
+}
+
+/* Left: brand / hero panel. */
+.auth__hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: var(--space-3xl);
+  background: var(--gradient-panel);
+  color: var(--color-on-primary);
+}
+
+/* Decorative glow circle behind the artwork (the Figma "Ellipse"). */
+.auth__hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    40% 40% at 50% 38%,
+    rgba(255, 255, 255, 0.18),
+    transparent 70%
+  );
+}
+
+/* Right: form panel. */
+.auth__panel {
+  display: grid;
+  place-items: center;
+  padding: var(--space-2xl);
+  background: var(--color-bg);
+}
+
+/* --- Responsive --------------------------------------------------------- */
+@media (max-width: 900px) {
+  .auth {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero becomes a shorter banner above the form. */
+  .auth__hero {
+    min-height: 38vh;
+    padding: var(--space-2xl);
+  }
+}
+
+@media (max-width: 560px) {
+  .auth__panel {
+    padding: var(--space-lg);
+  }
 }

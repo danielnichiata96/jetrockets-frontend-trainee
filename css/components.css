@@ -1,6 +1,5 @@
 /* ==========================================================================
    Components — small, reusable UI building blocks.
-   Add one block per component as the layout grows.
    ========================================================================== */
 
 /* --- Button ------------------------------------------------------------- */
@@ -8,32 +7,108 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm) var(--space-lg);
-  font-weight: var(--fw-medium);
+  gap: var(--space-sm);
+  width: 100%;
+  height: var(--control-height);
+  padding-inline: var(--space-md);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-body);
   border: 1px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: var(--field-radius);
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
 }
 
 .button--primary {
-  background-color: var(--color-accent);
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 .button--primary:hover {
-  background-color: var(--color-accent-hover);
+  background-color: var(--color-primary-2);
+}
+
+.button--dark {
+  background-color: var(--color-dark);
+  color: var(--color-on-primary);
+}
+
+.button--dark:hover {
+  opacity: 0.9;
+}
+
+.button__icon {
+  display: inline-flex;
+  background: #fff;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+/* --- Checkbox ----------------------------------------------------------- */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.checkbox input {
+  appearance: none;
+  flex: 0 0 auto;
+  width: var(--check-size);
+  height: var(--check-size);
+  border: 1px solid var(--color-border);
+  border-radius: var(--check-radius);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.checkbox input::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  transform: scale(0);
+  transform-origin: center;
+  transition: transform 0.15s ease;
+  box-shadow: inset 1rem 1rem var(--color-on-primary);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox input:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox input:checked::before {
+  transform: scale(1);
+}
+
+/* --- Link --------------------------------------------------------------- */
+.link {
+  color: var(--color-primary);
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-body);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* --- Store badge (placeholder until real assets are exported) ----------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding-inline: var(--space-md);
+  background: var(--color-heading);
   color: #fff;
-}
-
-.button--ghost {
-  background-color: transparent;
-  border-color: var(--color-border);
-  color: var(--color-text);
-}
-
-.button--ghost:hover {
-  background-color: var(--color-surface);
-  color: var(--color-text);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
 }
