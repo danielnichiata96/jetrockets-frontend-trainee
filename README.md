@@ -2,7 +2,7 @@
 
 Layout built from the [JetRockets Frontend Trainee Figma mockup](https://www.figma.com/design/1NWvnnpn8RzLjDdv2giz0f/JetRockets---Frontend-Trainee?node-id=0-1).
 
-**Live demo:** _added once published to GitHub Pages (see Deployment)._
+**Live demo:** <https://danielnichiata96.github.io/jetrockets-frontend-trainee/>
 
 ## Stack
 
