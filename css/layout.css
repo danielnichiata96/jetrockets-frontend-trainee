@@ -13,9 +13,9 @@
 .auth__hero {
   position: relative;
   overflow: hidden;
-  display: grid;
-  place-items: center;
-  padding: var(--space-3xl);
+  display: flex;
+  /* Title sits ~64px from the top in Figma (≈7% of the 958px panel). */
+  padding: clamp(2rem, 6.7vh, 4rem) var(--space-2xl) var(--space-2xl);
   background: var(--gradient-panel);
   color: var(--color-on-primary);
 }

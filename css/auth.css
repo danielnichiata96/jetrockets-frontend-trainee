@@ -10,7 +10,14 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-2xl);
-  max-width: 554px;
+  width: 100%;
+  max-width: 554px;   /* title width in Figma */
+  margin-inline: auto;
+}
+
+/* Title at the top; artwork grows to fill the space below it. */
+.hero__images {
+  flex: 1;
 }
 
 /* App screenshots — placeholders until the real images are exported. */
