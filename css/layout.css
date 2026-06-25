@@ -32,13 +32,13 @@
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  /* Soft, subtle darker-blue disc — matches the gentle tonal circle in the
-     design (a hard high-contrast ring reads too strong). */
+  /* Darker-blue disc behind the phones (Figma "Ellipse 2"). Solid body so the
+     ring peeking around the phones stays visible, with a soft outer edge. */
   background: radial-gradient(
     circle,
-    rgba(7, 68, 156, 0.55) 0%,
-    rgba(7, 68, 156, 0.18) 52%,
-    transparent 72%
+    rgba(2, 54, 132, 0.5) 0%,
+    rgba(2, 54, 132, 0.5) 64%,
+    rgba(2, 54, 132, 0) 80%
   );
 }
 
