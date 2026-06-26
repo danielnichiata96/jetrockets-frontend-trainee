@@ -8,10 +8,15 @@
   --color-bg: #ffffff;
   --color-heading: #1d1d1d;       /* big headings, logo */
   --color-text: #2d3748;          /* body, labels, input text */
-  --color-primary: #007aff;       /* primary button, links */
+  --color-primary: #007aff;       /* brand blue — decorative (hero gradient) */
   --color-primary-2: #0f70da;     /* gradient companion */
+  /* Interactive blue (buttons, links, focus). The design's #007aff is only
+     4.0:1 on white — below WCAG AA for 14px text — so interactive elements use
+     #0f70da (4.8:1). The brand #007aff stays on the large decorative gradient. */
+  --color-accent: #0f70da;
+  --color-accent-hover: #0a59b3;
   --color-dark: #2d3748;          /* "Sign-in with google" button bg */
-  --color-border: #d1d1d1;        /* input + checkbox borders */
+  --color-border: #8c8c8c;        /* input + checkbox borders — ≥3:1 (WCAG 1.4.11) */
   --color-on-primary: #ffffff;
 
   /* Left hero panel gradient */

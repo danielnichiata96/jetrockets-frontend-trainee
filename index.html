@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/components.css" />
     <link rel="stylesheet" href="css/auth.css" />
+
+    <script src="js/main.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -62,25 +64,27 @@
           </header>
 
           <!-- Field names use Rails' nested strong-params convention
-               (user[...]); a real Rails controller would receive `params[:user]`. -->
-          <form class="form" action="/users" method="post" novalidate>
+               (user[...]); a real Rails controller would receive `params[:user]`
+               at POST /users. On this static demo, js/main.js intercepts the
+               submit, runs native validation, and shows a notice (no backend). -->
+          <form class="form" action="/users" method="post">
             <div class="form__grid">
               <div class="field">
                 <label for="first-name">First name</label>
                 <input id="first-name" name="user[first_name]" type="text"
-                       autocomplete="given-name" />
+                       autocomplete="given-name" required />
               </div>
 
               <div class="field">
                 <label for="last-name">Last name</label>
                 <input id="last-name" name="user[last_name]" type="text"
-                       autocomplete="family-name" />
+                       autocomplete="family-name" required />
               </div>
 
               <div class="field">
                 <label for="email">Email or phone number</label>
                 <input id="email" name="user[email]" type="text"
-                       autocomplete="email" />
+                       autocomplete="email" required />
               </div>
 
               <div class="field">
@@ -96,13 +100,13 @@
               <div class="field">
                 <label for="password">Password</label>
                 <input id="password" name="user[password]" type="password"
-                       autocomplete="new-password" />
+                       autocomplete="new-password" required minlength="8" />
               </div>
 
               <div class="field">
                 <label for="confirm">Confirm password</label>
                 <input id="confirm" name="user[password_confirmation]" type="password"
-                       autocomplete="new-password" />
+                       autocomplete="new-password" required minlength="8" />
               </div>
             </div>
 

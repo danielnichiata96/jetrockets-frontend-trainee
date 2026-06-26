@@ -23,16 +23,16 @@ h2 { font-size: var(--fs-logo); }
 h3 { font-size: var(--fs-body); }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 a:hover {
-  color: var(--color-primary-2);
+  color: var(--color-accent-hover);
 }
 
 /* Visible focus for keyboard users — accessibility baseline. */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 

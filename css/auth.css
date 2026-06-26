@@ -33,7 +33,7 @@
 .hero__img--front {
   position: relative;
   z-index: 2;
-  height: clamp(340px, 56vh, 600px);   /* native 631px */
+  height: clamp(360px, 66vh, 631px);   /* native 631px ≈ 66% of the panel */
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.28));
 }
 
@@ -44,7 +44,7 @@
   z-index: 1;
   top: 50%;
   left: 50%;
-  height: clamp(260px, 43vh, 462px);   /* native 485px */
+  height: clamp(280px, 51vh, 485px);   /* native 485px ≈ 51% of the panel */
   filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.22));
 }
 
@@ -71,6 +71,9 @@
   gap: var(--space-xl);
   width: 100%;
   max-width: 748px;
+  /* Drive the form's column count off the panel's own width, not the viewport,
+     so it never sits 2-up while cramped (e.g. the old 901px button-wrap). */
+  container-type: inline-size;
 }
 
 /* Logo */
@@ -121,9 +124,16 @@
   gap: var(--space-lg);
 }
 
+/* Demo submit confirmation (added by js/main.js). */
+.form__note {
+  font-size: var(--fs-body);
+  letter-spacing: var(--ls-body);
+  color: var(--color-accent);
+}
+
 .form__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);   /* one column by default */
   column-gap: var(--space-xl);
   row-gap: var(--space-lg);
 }
@@ -161,8 +171,8 @@
 
 .field input:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(15, 112, 218, 0.2);
 }
 
 /* Input with a trailing icon (Date of birth). */
@@ -194,11 +204,11 @@
   gap: var(--space-md);
 }
 
-/* Actions: two side-by-side buttons */
+/* Actions: stacked by default, side-by-side once the panel is wide enough. */
 .form__actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-md) var(--space-xl);
   margin-top: var(--space-xs);
 }
 
@@ -219,15 +229,29 @@
   padding-top: var(--space-xl);
 }
 
+/* Let the Remember-me / Forgot-password row wrap on tight panels. */
+.form__row {
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-md);
+}
+
 /* --- Responsive --------------------------------------------------------- */
-@media (max-width: 640px) {
+/* Two-up fields/buttons only once the panel itself is wide enough for the
+   358px columns — a container query, so the viewport breakpoint can't leave
+   the form cramped-but-2-up (the old ~901px button-wrap). */
+@container (min-width: 680px) {
   .form__grid,
   .form__actions {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .form__row {
-    flex-wrap: wrap;
-    gap: var(--space-xs) var(--space-md);
+/* On small screens the hero is a banner, so the phones scale down. */
+@media (max-width: 900px) {
+  .hero__img--front {
+    height: clamp(300px, 42vh, 440px);
+  }
+  .hero__img--side {
+    height: clamp(230px, 32vh, 340px);
   }
 }

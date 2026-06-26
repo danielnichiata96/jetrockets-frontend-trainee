@@ -109,9 +109,19 @@ Hotwire app with minimal change — which is the growth path this role is about:
 
 - Semantic structure: `<main>`, `<aside>` (hero), `<header>` (heading);
   `lang` attribute; skip link.
-- Real input `type`s + `<label for>` + `autocomplete`; required fields marked.
+- Real input `type`s + `<label for>` + `autocomplete`; fields `required`.
 - Visible keyboard focus, respects `prefers-reduced-motion`.
-- _(track contrast / alt text / heading order as the layout grows.)_
+- **Colour contrast meets WCAG AA.** The design's `#007aff` is only 4.0:1 on
+  white (below AA for 14px text), so interactive blue (buttons, links, focus)
+  uses `#0f70da` (4.8:1) and control borders are darkened to ≥3:1 (SC 1.4.11).
+  The brand `#007aff` stays on the large decorative hero gradient.
+
+## Forms
+
+It's a static site, so `js/main.js` progressively enhances the form: the browser
+runs native validation (`required`, `minlength`), then the submit is intercepted
+to show a confirmation instead of POSTing to `/users` (which would 404 here). The
+Rails-style `action`/field names are kept to show the intended server endpoint.
 
 ## Assets
 
